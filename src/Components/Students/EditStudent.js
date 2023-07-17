@@ -23,6 +23,7 @@ function UpdateForm({ selectedOption }) {
   for (let i = 0; i < teacherData.length; i++) {
     mentors.push(teacherData[i].name);
   }
+  console.log(mentors)
 
   useEffect(() => {
     axios
@@ -37,7 +38,7 @@ function UpdateForm({ selectedOption }) {
         setstudentMentor(student.data.mentor);
       });
   }, [selectedOption]);
-
+  console.log(studentMentor)
   let handleNameChange = (event) => {
     setstudentName(event.target.value);
   };
@@ -131,9 +132,9 @@ function UpdateForm({ selectedOption }) {
         <div className="col-sm-6">
           <label form="studentMentor">Select Mentor</label>
           <select value={studentMentor} onChange={handleMentorChange}>
-            <option value="">Select Mentor</option>
+            <option>Select Mentor</option>
             {mentors.length > 0
-              ? mentors.map((men) => <option key={men}>{men}</option>)
+              ? mentors.map(men => (<option key={men}>{men}</option>))
               : ""}
           </select>
         </div>

@@ -2,18 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 function UpdateForm({ selectedOption }) {
-  const [teacherData, setTeacherData] = useState("");
   const [teacherName, setTeacherName] = useState("");
   const [teacherBatch, setTeacherBatch] = useState("");
   const [teacherJoiningDate, setTeacherJoiningDate] = useState("");
 
   const teacherNameRef = useRef(null);
-
-  useEffect(() => {
-    axios
-      .get("https://64a7ce3ddca581464b84cf38.mockapi.io/teachers")
-      .then((response) => setTeacherData(response.data));
-  }, []);
 
   useEffect(() => {
     axios
